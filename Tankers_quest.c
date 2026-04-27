@@ -17,7 +17,7 @@ unsigned char* load_png(const char* filename, unsigned int* width, unsigned int*
 void write_png(const char* filename, const unsigned char* image, unsigned width, unsigned height)
 {
     unsigned char* png;
-    long unsigned int pngsize;
+    long long unsigned int pngsize;
     int error = lodepng_encode32(&png, &pngsize, image, width, height);
     if(error == 0) {
         lodepng_save_file(png, pngsize, filename);
@@ -28,10 +28,8 @@ void write_png(const char* filename, const unsigned char* image, unsigned width,
 }
 
 
-void contrast(unsigned char *col, int bw_size)
-{
-    for(int i=0; i < bw_size; i++)
-    {
+void contrast(unsigned char *col, int bw_size){
+    for(int i=0; i < bw_size; i++){
         if(col[i] < 55)
             col[i] = 0;
         if(col[i] > 195)
@@ -53,7 +51,7 @@ int check(unsigned char *pic, int size, int i, int neighbour){
 
 int set_contrast(int bw_size, unsigned char* bw_pic, unsigned char* picture, int width) {
     unsigned char value;
-    for (int i = 0; i < bw_size; i++) {
+    for (int i = 0; i < bw_size; i++){
         value = (picture[i * 4] + picture[i * 4 + 1] + picture[i * 4 + 2]) / 3;
         bw_pic[i] = value;
     }
