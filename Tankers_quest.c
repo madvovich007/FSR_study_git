@@ -132,8 +132,7 @@ int dfs(unsigned char* bw_pic, unsigned char* visited, int current, int bw_size,
 }
 
 
-int main(void)
-{
+int main(void){
     const char* filename = "photo_2026-03-05_12-50-10_upscayl_4x_realesrgan-x4plus.png";
     unsigned int width, height;
     int bw_size;

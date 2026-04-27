@@ -1,9 +1,10 @@
 
+all:
+	program
+
 program: Tankers_quest.c lodepng.c
 	gcc Tankers_quest.c lodepng.c -o program
 
 run: program
 	.\program.exe
 
-all:
-	program
